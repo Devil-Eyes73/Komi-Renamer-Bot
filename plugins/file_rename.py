@@ -55,11 +55,11 @@ async def refunc(client, message):
             new_name = new_name + "." + extn
         await reply_message.delete()
 
-        button = [[InlineKeyboardButton("📁 Document",callback_data = "upload_document")]]
+        button = [[InlineKeyboardButton("📁 Dᴏᴄᴜᴍᴇɴᴛ",callback_data = "upload_document")]]
         if file.media in [MessageMediaType.VIDEO, MessageMediaType.DOCUMENT]:
-            button.append([InlineKeyboardButton("🎥 Video", callback_data = "upload_video")])
+            button.append([InlineKeyboardButton("🎥 Vɪᴅᴇᴏ", callback_data = "upload_video")])
         elif file.media == MessageMediaType.AUDIO:
-            button.append([InlineKeyboardButton("🎵 Audio", callback_data = "upload_audio")])
+            button.append([InlineKeyboardButton("🎵 ᴀᴜᴅɪᴏ", callback_data = "upload_audio")])
         await message.reply(
             text=f"**Select The Output File Type**\n\n**File Name :-** `{new_name}`",
             reply_to_message_id=file.id,
@@ -88,7 +88,7 @@ async def doc(bot, update):
     file_path = f"downloads/{update.from_user.id}/{new_filename}"
     file = update.message.reply_to_message
 
-    ms = await update.message.edit("🚀 Try To Download...  ⚡")    
+    ms = await update.message.edit("• ᴛʀʏ ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ... ⚡")    
     try:
      	path = await bot.download_media(message=file, file_name=file_path, progress=progress_for_pyrogram,progress_args=("🚀 Try To Downloading...  ⚡", ms, time.time()))                    
     except Exception as e:
@@ -103,7 +103,7 @@ async def doc(bot, update):
         metadata_path = f"Metadata/{new_filename}"
         await add_metadata(path, metadata_path, metadata, ms)
     else:
-        await ms.edit("⏳ Mode Changing...  ⚡")
+        await ms.edit("• ᴍᴏᴅᴇ ᴄʜᴀɴɢɪɴɢ... ⏳")
 
     duration = 0
     try:
@@ -142,7 +142,7 @@ async def doc(bot, update):
                  print(e)  
 
 
-    await ms.edit("💠 Try To Upload...  ⚡")
+    await ms.edit("• ᴛʀʏ ᴛᴏ ᴜᴘʟᴏᴀᴅ... ✨")
     type = update.data.split("_")[1]
     try:
         if type == "document":
@@ -152,7 +152,7 @@ async def doc(bot, update):
                 thumb=ph_path, 
                 caption=caption, 
                 progress=progress_for_pyrogram,
-                progress_args=("💠 Try To Uploading...  ⚡", ms, time.time()))
+                progress_args=("• ᴛʀʏ ᴛᴏ ᴜᴘʟᴏᴀᴅɪɴɢ... ✨", ms, time.time()))
 
         elif type == "video": 
             await bot.send_video(
@@ -162,7 +162,7 @@ async def doc(bot, update):
                 thumb=ph_path,
                 duration=duration,
                 progress=progress_for_pyrogram,
-                progress_args=("💠 Try To Uploading...  ⚡", ms, time.time()))
+                progress_args=("• ᴛʀʏ ᴛᴏ ᴜᴘʟᴏᴀᴅɪɴɢ... ✨", ms, time.time()))
 
         elif type == "audio": 
             await bot.send_audio(
@@ -172,7 +172,7 @@ async def doc(bot, update):
                 thumb=ph_path,
                 duration=duration,
                 progress=progress_for_pyrogram,
-                progress_args=("💠 Try To Uploading...  ⚡", ms, time.time()))
+                progress_args=("• ᴛʀʏ ᴛᴏ ᴜᴘʟᴏᴀᴅɪɴɢ... ✨", ms, time.time()))
 
 
     except Exception as e:          
