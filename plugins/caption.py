@@ -7,7 +7,7 @@ async def add_caption(client, message):
        return await message.reply_text("**Give The Caption\n\nExample :- `/set_caption 📕Name ➠ : {filename} \n\n🔗 Size ➠ : {filesize} \n\n⏰ Duration ➠ : {duration}`**")
     caption = message.text.split(" ", 1)[1]
     await jishubotz.set_caption(message.from_user.id, caption=caption)
-    await message.reply_text("**Your Caption Successfully Added ✅**")
+    await message.reply_text("**ʏᴏᴜʀ ᴄᴀᴘᴛɪᴏɴ sᴜᴄᴄᴇssғᴜʟʟʏ ᴀᴅᴅᴇᴅ ✓**")
    
 @Client.on_message(filters.private & filters.command(['del_caption', "dc"]))
 async def delete_caption(client, message):
@@ -15,7 +15,7 @@ async def delete_caption(client, message):
     if not caption:
        return await message.reply_text("**You Don't Have Any Caption ❌**")
     await jishubotz.set_caption(message.from_user.id, caption=None)
-    await message.reply_text("**Your Caption Successfully Deleted 🗑️**")
+    await message.reply_text("**ʏᴏᴜʀ ᴄᴀᴘᴛɪᴏɴ sᴜᴄᴄᴇssғᴜʟʟʏ ᴅᴇʟᴇᴛᴇᴅ 🗑️**")
                                        
 @Client.on_message(filters.private & filters.command(['see_caption', 'view_caption', "vc"]))
 async def see_caption(client, message):
@@ -23,7 +23,7 @@ async def see_caption(client, message):
     if caption:
        await message.reply_text(f"**Your Caption :**\n\n`{caption}`")
     else:
-       await message.reply_text("**You Don't Have Any Caption ❌**")
+       await message.reply_text("**ʏᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴀɴʏ ᴄᴀᴘᴛɪᴏɴ ✘**")
 
 
 
