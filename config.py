@@ -1,7 +1,4 @@
-import os, time, re
-id_pattern = re.compile(r'^.\d+$')
-
-
+import os, time
 
 class Config(object):
     # pyro client config
@@ -16,7 +13,7 @@ class Config(object):
     # other configs
     BOT_UPTIME  = time.time()
     START_PIC   = os.environ.get("START_PIC", "")
-    ADMIN = [int(admin) if id_pattern.search(admin) else admin for admin in os.environ.get('ADMIN', '').split()]
+    ADMIN = int(os.environ.get("ADMIN", ""))
 
     # channels logs
     FORCE_SUB   = os.environ.get("FORCE_SUB", "") 
@@ -29,78 +26,68 @@ class Config(object):
 
 class Txt(object):
     # part of text configuration
-    START_TXT = """Hello {} 👋 
+    START_TXT = """<b>ʜᴇʟʟᴏ</b> {} 👋 
 
-➻ This Is An Advanced And Yet Powerful Rename Bot.
+<b>➻ ᴛʜɪs ɪs ᴀɴ ᴀᴅᴠᴀɴᴄᴇᴅ ᴀɴᴅ ʏᴇᴛ ᴘᴏᴡᴇʀғᴜʟ ʀᴇɴᴀᴍᴇ ʙᴏʏ.</b>
 
-➻ Using This Bot You Can Rename And Change Thumbnail Of Your Files.
+<b>➻ ᴜsɪɴɢ ᴛʜɪs ʙᴏᴛ ʏᴏᴜ ᴄᴀɴ ʀᴇɴᴀᴍᴇ ᴀɴᴅ ᴄʜᴀɴɢᴇ ᴛʜᴜᴍʙɴᴀɪʟ ᴏғ ʏᴏᴜʀ ғɪʟᴇs.</b>
 
-➻ You Can Also Convert Video To File And File To Video.
+<b>➻ ʏᴏᴜ ᴄᴀɴ ᴀʟsᴏ ᴄᴏɴᴠᴇʀᴛ ᴠɪᴅᴇᴏ ᴛᴏ ғɪʟᴇ ᴀɴᴅ ғɪʟᴇ ᴛᴏ ᴠɪᴅᴇᴏ.</b>
 
-➻ This Bot Also Supports Custom Thumbnail And Custom Caption.
+<b>➻ ᴛʜɪs ʙᴏᴛ ᴀʟsᴏ sᴜᴘᴘᴏʀᴛs ᴄᴜsᴛᴏᴍ ᴛʜᴜᴍʙɴᴀɪʟ ᴀɴᴅ ᴄᴜsᴛᴏᴍ ᴄᴀᴘᴛɪᴏɴ.</b>
 
-<b>Bot Is Made By :</b> @Madflix_Bots"""
+<b>ʙᴏᴛ ɪs ᴍᴀᴅᴇ ʙʏ :</b> @ZPro_Bots"""
 
     ABOUT_TXT = """
 ╭───────────────⍟
-├<b>🤖 My Name</b> : {}
-├<b>🖥️ Developer</b> : <a href=https://t.me/Madflix_Bots>Madflix Botz</a> 
-├<b>👨‍💻 Programer</b> : <a href=https://t.me/MadflixOfficials>Jishu Developer</a>
-├<b>📕 Library</b> : <a href=https://github.com/pyrogram>Pyrogram</a>
-├<b>✏️ Language</b> : <a href=https://www.python.org>Python 3</a>
-├<b>💾 Database</b> : <a href=https://cloud.mongodb.com>Mongo DB</a>
-├<b>📊 Build Version</b> : <a href=https://instagram.com/jishu.editz>Rename v4.5.0</a></b>     
+├<b>๏ ᴍʏ ɴᴀᴍᴇ</b> : {}
+├<b>๏ ᴅᴇᴠᴇʟᴏᴘᴇʀ</b> : <a href=https://t.me/ZPro_Bots>ᴢᴘʀᴏ ʙᴏᴛs</a> 
+├<b>๏ sᴜᴘᴘᴏʀᴛ</b> : <a href=https://t.me/+FGM0HOnjDC45ZDk1>sᴜᴘᴘᴏʀᴛ</a>
+├<b>๏ ʟɪʙʀᴀʀʏ</b> : <a href=https://github.com/pyrogram>Pyrogram</a>
+├<b>๏ ʟᴀɴɢᴜᴀɢᴇ</b> : <a href=https://www.python.org>Python 3</a>
+├<b>๏ ᴀɴɪᴍᴇ</b> : <a href=https://t.me/anime_infinitely>ᴀɴɪᴍᴇ ɪɴғɪɴɪᴛᴇʟʏ</a>
+├<b>๏ ᴏᴜʀ ᴄᴏᴍᴍᴜɴɪᴛʏ</b> : <a href=https://t.me/+6I-gRwgRShUzNWVl>ᴏᴛᴀᴋᴜ ᴢᴏɴᴇ</a></b>     
 ╰───────────────⍟
 """
 
     HELP_TXT = """
-🌌 <b><u>How To Set Thumbnail</u></b>
+🌌 <b>ʜᴏᴡ ᴛᴏ sᴇᴛ ᴛʜᴜᴍʙɴᴀɪʟ</b>
   
-➪ /start - Start The Bot And Send Any Photo To Automatically Set Thumbnail.
-➪ /del_thumb - Use This Command To Delete Your Old Thumbnail.
-➪ /view_thumb - Use This Command To View Your Current Thumbnail.
+➪ /start - sᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ ᴀɴᴅ sᴇɴᴅ ᴀɴʏ ᴘʜᴏᴛᴏ ᴛᴏ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ sᴇᴛ ᴛʜᴜᴍʙɴᴀɪʟ.
+➪ /del_thumb - ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ᴛᴏ ᴅᴇʟᴇᴛᴇ ʏᴏᴜʀ ᴏʟᴅ ᴛʜᴜᴍʙɴᴀɪʟ.
+➪ /view_thumb - ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ᴛᴏ ᴠɪᴇᴡ ʏᴏᴜʀ ᴄᴜʀʀᴇɴᴛ ᴛʜᴜᴍʙɴᴀɪʟ.
 
-📑 <b><u>How To Set Custom Caption</u></b>
+📑 <b>ʜᴏᴡ ᴛᴏ sᴇᴛ ᴄᴜsᴛᴏᴍ ᴄᴀᴘᴛɪᴏɴ</b>
 
-➪ /set_caption - Use This Command To Set A Custom Caption
-➪ /see_caption - Use This Command To View Your Custom Caption
-➪ /del_caption - Use This Command To Delete Your Custom Caption
-➪ Example - <code>/set_caption 📕 Name ➠ : {filename}
+➪ /set_caption - ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ᴛᴏ sᴇᴛ ᴀ ᴄᴜsᴛᴏᴍ ᴄᴀᴘᴛɪᴏɴ
+➪ /see_caption - ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ᴛᴏ ᴠɪᴇᴡ ʏᴏᴜʀ ᴄᴜsᴛᴏᴍ ᴄᴀᴘᴛɪᴏɴ
+➪ /del_caption - ᴜsᴇ ᴛʜɪs ᴄᴏᴍᴍᴀɴᴅ ᴛᴏ ᴅᴇʟᴇᴛᴇ ʏᴏᴜʀ ᴄᴜsᴛᴏᴍ ᴄᴀᴘᴛɪᴏɴ
+➪ Exᴀᴍᴘʟᴇ - <code>/set_caption 📕 Name ➠ : {filename}
 
 🔗 Size ➠ : {filesize} 
 
 ⏰ Duration ➠ : {duration}</code>
 
-✏️ <b><u>How To Rename A File</u></b>
+✏️ <b><u>ʜᴏᴡ ᴛᴏ ʀᴇɴᴀᴍᴇ ᴀ ғɪʟᴇ</u></b>
 
-➪ Send Any File And Type New File Name And Select The Format [ Document, Video, Audio ].           
+<b>➪ sᴇɴᴅ ᴀɴʏ ғɪʟᴇ ᴀɴᴅ ᴛʏᴘᴇ ɴᴇᴡ ғɪʟᴇ ɴᴀᴍᴇ ᴀɴᴅ sᴇʟᴇᴄᴛ ᴛʜᴇ ғᴏʀᴍᴀᴛ [ ᴅᴏᴄᴜᴍᴇɴᴛ, ᴠɪᴅᴇᴏ, ᴀᴜᴅɪᴏ ].</b>           
 
-𝗔𝗻𝘆 𝗢𝘁𝗵𝗲𝗿 𝗛𝗲𝗹𝗽 𝗖𝗼𝗻𝘁𝗮𝗰𝘁 :- <a href=https://t.me/MadflixOfficials>Developer</a>
+<b>ᴀɴʏ ᴏᴛʜᴇʀ ʜᴇʟᴘ ᴄᴏɴᴛᴀᴄᴛ :-</b> <a href=https://t.me/ZPro_Bots><b>ᴍᴀsᴛᴇʀ</b></a>
 """
 
     PROGRESS_BAR = """\n
- <b>🔗 Size :</b> {1} | {2}
-️ <b>⏳️ Done :</b> {0}%
- <b>🚀 Speed :</b> {3}/s
-️ <b>⏰️ ETA :</b> {4}
+ <b>‣ Sɪᴢᴇ :</b> {1} | {2}
+️ <b>‣ Dᴏɴᴇ :</b> {0}%
+ <b>‣ Sᴘᴇᴇᴅ :</b> {3}/s
+️ <b>‣ Eᴛᴀ :</b> {4}
 """
 
     DONATE_TXT = """
-<b>🥲 Thanks For Showing Interest In Donation! ❤️</b>
+<b>🥲 ᴛʜᴀɴᴋs ғᴏʀ sʜᴏᴡɪɴɢ ɪɴᴛᴇʀᴇsᴛ ɪɴ ᴅᴏɴᴀᴛɪᴏɴ! ❤️</b>
 
-If You Like My Bots & Projects, You Can 🎁 Donate Me Any Amount From 10 Rs Upto Your Choice.
+<b>ɪғ ʏᴏᴜ ʟɪᴋᴇ ᴍʏ ʙᴏᴛs & ᴘʀᴏᴊᴇᴄᴛs, ʏᴏᴜ ᴄᴀɴ ᴅᴏɴᴀᴛᴇ ᴍᴇ ᴀɴʏ ᴀᴍᴏᴜɴᴛ ғʀᴏᴍ 𝟸𝟶 ʀs ᴜᴘᴛᴏ ʏᴏᴜʀ ᴄʜᴏɪᴄᴇ.</b>
 
-<b>🛍 UPI ID:</b> `madflixofficial@axl`
-"""
-
-
-    SEND_METADATA = """<b><u>🖼️  HOW TO SET CUSTOM METADATA</u></b>
-
-For Example :-
-
-<code>By :- @Madflix_Bots</code>
-
-💬 For Any Help Contact @MadflixOfficials
+<b>🛍 ᴜᴘɪ ɪᴅ:</b> `anime-legend@axl`
 """
 
 
